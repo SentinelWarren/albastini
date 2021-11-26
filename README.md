@@ -84,5 +84,5 @@ It is possible for five players to play as individuals. In this case the face up
 
 ## Credits
 
-* Augustino Mponzi
+* [Augustino Mponzi](https://www.kickstarter.com/projects/albastini-card-game/albastini-card-game)
 * https://www.pagat.com
