@@ -1,6 +1,6 @@
 import pprint
 from random import choice, shuffle
-from card import Card
+from albastini import Card
 
 
 # A basic immutable Card class.
@@ -27,9 +27,9 @@ class Deck:
 
 
 # suit values for cards ranking.
-suit_values = dict(Spades=3, Hearts=2, Diamonds=1, Clubs=0)
+# suit_values = dict(Spades=3, Hearts=2, Diamonds=1, Clubs=0)
 
-def spades_high(card):
+def ace_high(card):
     """Cards ranking helper function."""
     return card.rank_order
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     print(f'\nAll Aces from deck:')
     pprint.pp(deck[8::9])
 
-    ranked_deck = [card for card in sorted(deck, key=spades_high)]
+    ranked_deck = [card for card in sorted(deck, key=ace_high)]
     print(f'\nRanked deck:')
     pprint.pprint(ranked_deck)
 
