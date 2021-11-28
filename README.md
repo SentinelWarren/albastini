@@ -10,19 +10,21 @@ This version of the game is written in Python.
 
 The game is normally played by 2, 3, 4 or 6 players. 4 or 6 players can play in teams of 2, partners sitting opposite, and 6 players can play in teams of 3, each player sitting between two opponents.
 
-A standard international deck is used, from which some of 'specials' (2's, 8's & Jokers) plus 9's, 10's are removed leaving a pack of 36 cards. The rank and values of the cards in each suit, in descending order from Ace (highest) to 3 (lowest) are as follows:
+A standard international deck is used, from which some of 'specials' (2's, 8's & Jokers) plus 9's, 10's cards are removed leaving a pack of 36 cards.
+
+The rank and values of the cards in each suit, in descending order from Ace (highest) to 3 (lowest) are as follows:
 
 |Card   | Value     |
 |-------|-----------|
 |Ace    | 11 points |
 |Seven  | 10 points |
-|King   |  4 points |
-|Jack   |  3 points |
-|Queen  |  2 points |
-|Six    |  0 points |
-|Five   |  0 points |
-|Four   |  0 points |
-|Three  |  0 points |
+|King   | 04 points |
+|Jack   | 03 points |
+|Queen  | 02 points |
+|Six    | 00 points |
+|Five   | 00 points |
+|Four   | 00 points |
+|Three  | 00 points |
 
 There are 120 points in the deck in total. The deal and play are clockwise.
 
