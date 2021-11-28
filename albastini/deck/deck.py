@@ -1,3 +1,10 @@
+"""Implements Albastini deck related classes.
+
+This module exports the following classes:
+    Deck: Albastini deck of Cards.
+"""
+# TODO: improve docstring
+
 import pprint
 from random import choice, shuffle
 from albastini import Card

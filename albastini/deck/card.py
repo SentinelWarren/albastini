@@ -1,4 +1,12 @@
-"""Card class that represents a playing card and its image file name."""
+"""Implements Albastini card related classes.
+
+This module exports the following classes:
+    * Rank - enum representing all ranks supported by Albastini cards: 3456QJK7A
+    * Suit - enum representing all suits: Hearts, Diamonds, Spades, Clubs
+    * Card - Albastini Card
+"""
+# TODO: improve doctring
+
 from enum import Enum
 
 
@@ -47,72 +55,66 @@ class Card:
         rank: a char or string value within the Rank enum, (Three-Ace)
         suit: a char or string representation of card categories i.e "HDSC"
     """
-    Ranks = Rank
-    Suits = Suit
+    __Ranks = Rank
+    __Suits = Suit
 
-    RANK_NAMES = {r.repr: r.name for r in Ranks}
-    RANK_SYMBOLS = {r.repr: r.value[1] for r in Ranks}
-    RANK_ORDERS = {r.repr: r.value[0] for r in Ranks}
-    RANK_POINTS = {r.repr: r.value[2] for r in Ranks}
-    #a string value in the range '2'-'10'-'JQKA', (2-Ace)
-    # RANKS = range(2,15)
-    # RANK_SYM = [str(n) for n in range(2,11)] + list('JQKA')
-    # RANK_NAMES = ['Two', 'Three', 'Four', 'Five', 'Six',
-    #               'Seven', 'Eight', 'Nine', 'Ten',
-    #               'Jack', 'Queen', 'King', 'Ace']
+    __RANK_NAMES = {r.repr: r.name for r in __Ranks}
+    __RANK_SYMBOLS = {r.repr: r.repr for r in __Ranks}
+    __RANK_ORDERS = {r.repr: r.order for r in __Ranks}
+    __RANK_POINTS = {r.repr: r.point for r in __Ranks}
 
-    SUIT_SYMBOLS = {s.value: s.value for s in Suits}
-    SUIT_NAMES = {suit.value: suit.name for suit in Suits}
+    __SUIT_SYMBOLS = {s.value: s.value for s in __Suits}
+    __SUIT_NAMES = {s.value: s.name for s in __Suits}
 
-    def __init__(self, rank, suit):
+    def __init__(self, rank: str, suit: str):
         """Initialize a Card with a rank and suit.
 
-        rank in RANK_SYMBOLS and suit in SUIT_SYMBOLS
+        rank in __RANK_SYMBOLS and suit in __SUIT_SYMBOLS
         """
-        if rank not in self.RANK_SYMBOLS:
-            raise ValueError(f"Invalid rank! Should be one of {self.RANK_SYMBOLS.values()}")
-        if suit not in self.SUIT_SYMBOLS:
-            raise ValueError(f"Invalid suit! Should be one of {self.SUIT_SYMBOLS.values()}")
+        if rank not in self.__RANK_SYMBOLS:
+            raise ValueError(f"Invalid rank! Should be one of {self.__RANK_SYMBOLS.values()}")
+        if suit not in self.__SUIT_SYMBOLS:
+            raise ValueError(f"Invalid suit! Should be one of {self.__SUIT_SYMBOLS.values()}")
 
-        self._rank = rank
-        self._suit = suit
+        self.__rank = rank
+        self.__suit = suit
 
     @property
     def rank(self):
-        """Return the Card's self._rank value."""
-        return self._rank
+        """Return the Card's self.__rank value."""
+        return self.__rank
 
     @property
     def rank_point(self):
-        """Return the Card's self.RANK_POINTS[self._rank] value."""
-        return self.RANK_POINTS[self.rank]
+        """Return the Card's self.__RANK_POINTS[self.rank] value."""
+        return self.__RANK_POINTS[self.rank]
 
     @property
     def rank_order(self):
-        """Return the Card's self.RANK_ORDERS[self._rank] value."""
-        return self.RANK_ORDERS[self.rank]
+        """Return the Card's self.__RANK_ORDERS[self._rank] value."""
+        return self.__RANK_ORDERS[self.rank]
 
     @property
     def rank_sym(self):
         """Return the Card's rank symbol corresponding
         to self's rank."""
-        return self.RANK_SYMBOLS[self.rank]
+        return self.__RANK_SYMBOLS[self.rank]
 
     @property
     def rank_name(self):
         """Return the Card's rank name corresponding
         to self's rank."""
-        return self.RANK_NAMES[self.rank]
+        return self.__RANK_NAMES[self.rank]
 
     @property
     def suit(self):
-        """Return the Card's self._suit value."""
-        return self._suit
+        """Return the Card's self.__suit value."""
+        return self.__suit
 
     @property
     def suit_name(self):
-        """Return the Card's self._suit name."""
-        return self.SUIT_NAMES[self.suit]
+        """Return the Card's self.suit name."""
+        return self.__SUIT_NAMES[self.suit]
 
     @property
     def image_name(self):

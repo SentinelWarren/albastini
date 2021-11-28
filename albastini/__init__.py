@@ -1,6 +1,6 @@
 """Albastini Python Game"""
 
-__version__ = "0.0.1"
+__version__ = "0.1.1"
 
 __all__ = [
     'Card',
@@ -9,3 +9,4 @@ __all__ = [
 
 from .deck.card import Card
 from .deck.deck import Deck
+#from .game import *
