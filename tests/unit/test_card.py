@@ -9,17 +9,17 @@ card5 = Card('J', 'S')
 
 def test_rank():
     """Test Rank enum class."""
-    ranks = {'3':'THREE', '4':'FOUR', '5':'FIVE', '6':'SIX',
-             'Q':'QUEEN', 'J':'JACK', 'K':'KING', '7':'SEVEN', 'A':'ACE'}
-    ranks_order = {0:0, 1:0, 2:0, 3:0, 4:2, 5:3, 6:4, 7:10, 8:11}
+    ranks_order = {0:'THREE', 1:'FOUR', 2:'FIVE', 3:'SIX',
+             4:'QUEEN', 5:'JACK', 6:'KING', 7:'SEVEN', 8:'ACE'}
+    rank_points = {'3':0, '4':0, '5':0, '6':0, 'Q':2, 'J':3, 'K':4, '7':10, 'A':11}
 
-    assert ranks == {r.repr: r.name for r in Rank}
-    assert ranks_order == {r.order: r.point for r in Rank}
+    assert ranks_order == {r.order: r.name for r in Rank}
+    assert rank_points == {r.repr: r.point for r in Rank}
 
 def test_suit():
     """Test Suit enum class."""
-    suit_names = ['HEARTS', 'DIAMONDS', 'SPADES', 'CLUBS']
     suit_values = ['H', 'D', 'S', 'C']
+    suit_names = ['HEARTS', 'DIAMONDS', 'SPADES', 'CLUBS']
 
     assert suit_names == [s.name for s in Suit]
     assert suit_values == [s.value for s in Suit]

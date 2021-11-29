@@ -23,7 +23,7 @@ class Rank(Enum):
     SEVEN = 7, '7', 10
     ACE   = 8, 'A', 11
 
-    def __init__(self, order, repr_, point):
+    def __init__(self, order: int, repr_: str, point: int):
         self.order = order
         self.repr = repr_
         self.point = point
