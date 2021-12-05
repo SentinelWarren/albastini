@@ -47,37 +47,47 @@ class Suit(Enum):
     def __repr__(self):
         return f"{self.value}"
 
+# __RANK_NAMES = {r.repr: r.name for r in Rank}
+# __RANK_SYMBOLS = {r.repr: r.repr for r in Rank}
+# __RANK_ORDERS = {r.repr: r.order for r in Rank}
+# __RANK_POINTS = {r.repr: r.point for r in Rank}
+
+# SUITS = {s.value: s.name for s in Suit}
 
 class Card:
-    """A simple playing card.
+    """Represents a single Albastini Card, given a valid rank and suit.
 
     A Card is characterized by two components:
-        rank: a char or string value within the Rank enum, (Three-Ace)
-        suit: a char or string representation of card categories i.e "HDSC"
+        rank: a string value within the Rank enum, (Three-Ace)
+        suit: a string representation of card categories i.e 'H', 'D', 'S' or 'C'
+
+    >>> card = Card('A', 'D')
     """
     __Ranks = Rank
-    __Suits = Suit
 
     __RANK_NAMES = {r.repr: r.name for r in __Ranks}
     __RANK_SYMBOLS = {r.repr: r.repr for r in __Ranks}
     __RANK_ORDERS = {r.repr: r.order for r in __Ranks}
     __RANK_POINTS = {r.repr: r.point for r in __Ranks}
 
-    __SUIT_SYMBOLS = {s.value: s.value for s in __Suits}
-    __SUIT_NAMES = {s.value: s.name for s in __Suits}
+    __SUITS = {s.value: s.name for s in Suit}
 
     def __init__(self, rank: str, suit: str):
         """Initialize a Card with a rank and suit.
 
-        rank in __RANK_SYMBOLS and suit in __SUIT_SYMBOLS
+        rank in __RANK_SYMBOLS and suit in __SUITS
+        """
+        self._validate(rank, suit)
+        self.__rank = rank
+        self.__suit = suit
+
+    def _validate(self, rank, suit):
+        """Check the card is valid, raise exception if not.
         """
         if rank not in self.__RANK_SYMBOLS:
             raise ValueError(f"Invalid rank! Should be one of {self.__RANK_SYMBOLS.values()}")
-        if suit not in self.__SUIT_SYMBOLS:
-            raise ValueError(f"Invalid suit! Should be one of {self.__SUIT_SYMBOLS.values()}")
-
-        self.__rank = rank
-        self.__suit = suit
+        if suit not in self.__SUITS:
+            raise ValueError(f"Invalid suit! Should be one of {self.__SUITS.keys()}")
 
     @property
     def rank(self):
@@ -114,7 +124,7 @@ class Card:
     @property
     def suit_name(self):
         """Return the Card's self.suit name."""
-        return self.__SUIT_NAMES[self.suit]
+        return self.__SUITS[self.suit]
 
     @property
     def image_name(self):

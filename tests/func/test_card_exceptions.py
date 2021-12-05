@@ -7,3 +7,4 @@ def test_card_raises():
     with raises(ValueError):
         Card('a', 'D')
         Card('7', 'c')
+        Card(7, 'C')

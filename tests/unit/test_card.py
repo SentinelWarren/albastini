@@ -18,11 +18,9 @@ def test_rank():
 
 def test_suit():
     """Test Suit enum class."""
-    suit_values = ['H', 'D', 'S', 'C']
-    suit_names = ['HEARTS', 'DIAMONDS', 'SPADES', 'CLUBS']
+    suits = {'H':'HEARTS', 'D':'DIAMONDS', 'S':'SPADES', 'C':'CLUBS'}
 
-    assert suit_names == [s.name for s in Suit]
-    assert suit_values == [s.value for s in Suit]
+    assert suits == {s.value: s.name for s in Suit}
 
 def test_card_methods():
     """Test Card class methods."""
